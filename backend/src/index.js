@@ -9,8 +9,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get('/', (_req, res) => res.status(200).json({ message: 'OK!' }));
-
 app.use(routes);
 
 const PORT = process.env.PORT || 3001;
