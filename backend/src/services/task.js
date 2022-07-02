@@ -12,7 +12,14 @@ const create = async (name, status) => {
   return task;
 };
 
+const update = async (id, name, status) => {
+  const task = await taskModel.update(id, name, status);
+
+  return task;
+};
+
 module.exports = {
   getAll,
   create,
+  update,
 };

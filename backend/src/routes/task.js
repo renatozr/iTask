@@ -7,4 +7,7 @@ router.route('/')
   .get(taskController.getAll)
   .post(taskController.create);
 
+router.route('/:id')
+  .put(taskController.update);
+
 module.exports = router;

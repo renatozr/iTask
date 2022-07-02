@@ -20,7 +20,17 @@ const create = async (name, status) => {
   return { id: insertId, name, status };
 };
 
+const update = async (id, name, status) => {
+  await conn.execute(
+    'UPDATE iTask_DB.task SET name=?, status_id=? WHERE id=?',
+    [name, status, id],
+  );
+
+  return { id, name, status };
+};
+
 module.exports = {
   getAll,
   create,
+  update,
 };
