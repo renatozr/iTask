@@ -18,8 +18,13 @@ const update = async (id, name, status) => {
   return task;
 };
 
+const exclude = async (id) => {
+  await taskModel.exclude(id);
+};
+
 module.exports = {
   getAll,
   create,
   update,
+  exclude,
 };

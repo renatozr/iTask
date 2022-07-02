@@ -8,6 +8,7 @@ router.route('/')
   .post(taskController.create);
 
 router.route('/:id')
-  .put(taskController.update);
+  .put(taskController.update)
+  .delete(taskController.exclude);
 
 module.exports = router;

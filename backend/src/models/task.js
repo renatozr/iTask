@@ -29,8 +29,16 @@ const update = async (id, name, status) => {
   return { id, name, status };
 };
 
+const exclude = async (id) => {
+  await conn.execute(
+    'DELETE FROM iTask_DB.task WHERE id=?',
+    [id],
+  );
+};
+
 module.exports = {
   getAll,
   create,
   update,
+  exclude,
 };

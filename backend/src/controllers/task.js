@@ -23,8 +23,17 @@ const update = async (req, res) => {
   res.status(200).json(task);
 };
 
+const exclude = async (req, res) => {
+  const { id } = req.params;
+
+  await taskService.exclude(id);
+
+  res.status(204).end();
+};
+
 module.exports = {
   getAll,
   create,
   update,
+  exclude,
 };
