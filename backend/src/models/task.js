@@ -11,6 +11,16 @@ const getAll = async () => {
   return tasks;
 };
 
+const create = async (name, status) => {
+  const [{ insertId }] = await conn.execute(
+    'INSERT INTO iTask_DB.task (name, status_id, created_at) VALUES (?, ?, NOW());',
+    [name, status],
+  );
+
+  return { id: insertId, name, status };
+};
+
 module.exports = {
   getAll,
+  create,
 };
