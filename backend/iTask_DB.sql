@@ -23,6 +23,6 @@ CREATE TABLE task (
 INSERT INTO iTask_DB.task
 	(`name`, `status_id`, `created_at`)
 VALUES
-  ('lavar a louca', 1, NOW()),
-  ('escovar os dentes', 3, NOW()),
-  ('assistir TV', 2, NOW());
+  ('Lavar a louça', 1, NOW()),
+  ('Escovar os dentes', 3, NOW()),
+  ('Assistir TV', 2, NOW());
