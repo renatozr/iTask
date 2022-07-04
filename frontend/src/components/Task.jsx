@@ -7,17 +7,18 @@ const excludeTask = (taskId) => axios.delete(`http://localhost:3001/tasks/${task
 function Task({ task }) {
   const [isTaskExcluded, setIsTaskExcluded] = useState(false);
 
-  const handleExcludeBtn = () => {
+  const handleClick = () => {
     setIsTaskExcluded(true);
     excludeTask(task.id);
   };
 
   if (isTaskExcluded) return undefined;
 
+  const taskDate = new Date(task.createdAt).toLocaleDateString();
   return (
     <div>
-      <span>{ `${task.name} - ${task.status}` }</span>
-      <button type="button" onClick={handleExcludeBtn}>X</button>
+      <span>{ `${task.name} - ${task.status} - ${taskDate}` }</span>
+      <button type="button" onClick={handleClick}>X</button>
     </div>
   );
 }
@@ -27,6 +28,7 @@ Task.propTypes = {
     id: PropTypes.number,
     name: PropTypes.string,
     status: PropTypes.string,
+    createdAt: PropTypes.string,
   }).isRequired,
 };
 
