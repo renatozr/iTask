@@ -7,8 +7,10 @@ CREATE TABLE status (
   `name` VARCHAR(50) NOT NULL UNIQUE
 );
 
-INSERT INTO status (`name`)
-VALUES ('pendente'), ('em andamento'), ('pronto');
+INSERT INTO status
+  (`name`)
+VALUES
+  ('pendente'), ('em andamento'), ('pronto');
 
 CREATE TABLE task (
 	`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -17,3 +19,10 @@ CREATE TABLE task (
   `created_at` TIMESTAMP NOT NULL,
   FOREIGN KEY (`status_id`) REFERENCES status (`id`)
 );
+
+INSERT INTO iTask_DB.task
+	(`name`, `status_id`, `created_at`)
+VALUES
+  ('lavar a louca', 1, NOW()),
+  ('escovar os dentes', 3, NOW()),
+  ('assistir TV', 2, NOW());
