@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import Task from './Task';
 
 const fetchTasks = () => axios.get('http://localhost:3001/tasks').then((res) => res.data);
 
@@ -13,7 +14,7 @@ function TaskList() {
   return (
     <div className="TaskList">
       {
-        tasks.map((task) => <div key={task.id}>{ `${task.name} - ${task.status}` }</div>)
+        tasks.map((task) => <Task key={task.id} task={task} />)
       }
     </div>
   );
