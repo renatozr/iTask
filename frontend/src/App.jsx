@@ -6,8 +6,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>iTask</h1>
-        <TaskList />
       </header>
+      <section>
+        <TaskList />
+      </section>
     </div>
   );
 }
