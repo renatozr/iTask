@@ -14,7 +14,7 @@ cd backend
 npm install
 ```
 ### Configurar variaveis de ambiente
-Renomeie o arquivo .env.example para .env e preencha-o com os devidos valores
+Renomeie o arquivo .env.example para .env e preencha os valores MYSQL_USER e MYSQL_PASSWORD
 ```
 // Exemplo
 MYSQL_HOST=localhost
@@ -30,7 +30,7 @@ npm start
 ## Iniciar o Frontend - Em outro terminal na pasta raiz do projeto
 ### Instalar as dependências
 ```
-cd front end
+cd frontend
 npm install
 ```
 ### Rodar aplicativo react
