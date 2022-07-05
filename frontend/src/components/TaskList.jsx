@@ -11,8 +11,12 @@ function TaskList() {
   const [sortBy, setSortBy] = useState('data');
   const [isCreatingTask, setIsCreatingTask] = useState(false);
 
-  useEffect(() => {
+  const renderTasks = () => {
     getTasks().then((data) => setTasks(data));
+  };
+
+  useEffect(() => {
+    renderTasks();
   }, []);
 
   const handleClick = () => {
@@ -24,14 +28,14 @@ function TaskList() {
       <button type="button" onClick={handleClick}>Criar nova tarefa</button>
       <SortBySelect sortBy={sortBy} setSortBy={setSortBy} />
       {
-        isCreatingTask ? (
-          <TaskForm tasks={tasks} setTasks={setTasks} setIsCreatingTask={setIsCreatingTask} />
-        ) : undefined
+        isCreatingTask ? ((
+          <TaskForm taskName="" renderTasks={renderTasks} setIsCreatingTask={setIsCreatingTask} />
+        )) : undefined
       }
       {
         [...tasks]
           .sort(compareFn[sortBy])
-          .map((task) => <Task key={task.id} task={task} />)
+          .map((task) => <Task renderTasks={renderTasks} key={task.id} task={task} />)
       }
     </div>
   );

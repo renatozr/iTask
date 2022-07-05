@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { createTask } from '../helpers/iTaskAPI';
+import { createTask, updateTask } from '../helpers/iTaskAPI';
 
-function TaskForm({ tasks, setTasks, setIsCreatingTask }) {
-  const [name, setName] = useState('');
+function TaskForm({
+  update, taskId, taskName, setIsCreatingTask, setIsUpdatingTask, renderTasks,
+}) {
+  const [name, setName] = useState(taskName);
   const [statusId, setStatusId] = useState('1');
 
   const handleInputChange = (event) => {
@@ -15,11 +17,19 @@ function TaskForm({ tasks, setTasks, setIsCreatingTask }) {
     setStatusId(event.target.value);
   };
 
-  const handleClick = () => {
+  const handleUpdateClick = () => {
+    updateTask(taskId, name, statusId)
+      .then(() => {
+        setIsUpdatingTask(false);
+        renderTasks();
+      });
+  };
+
+  const handleCreateClick = () => {
     createTask(name, parseInt(statusId, 10))
-      .then(({ data }) => {
-        setTasks([...tasks, { ...data, createdAt: new Date(data.createdAt) }]);
+      .then(() => {
         setIsCreatingTask(false);
+        renderTasks();
       });
   };
 
@@ -34,19 +44,28 @@ function TaskForm({ tasks, setTasks, setIsCreatingTask }) {
           <option value="3">Pronto</option>
         </select>
       </label>
-      <button type="button" onClick={handleClick}>Criar</button>
+      {
+        update ? (
+          <button type="button" onClick={handleUpdateClick}>Atualizar</button>
+        ) : (
+          <button type="button" onClick={handleCreateClick}>Criar</button>
+        )
+      }
     </form>
   );
 }
 
 TaskForm.propTypes = {
-  tasks: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string,
-    status: PropTypes.string,
-    createdAt: PropTypes.instanceOf(Date),
-  })).isRequired,
-  setTasks: PropTypes.func.isRequired,
-  setIsCreatingTask: PropTypes.func.isRequired,
+  update: PropTypes.bool.isRequired,
+  taskId: PropTypes.number.isRequired,
+  taskName: PropTypes.string.isRequired,
+  setIsCreatingTask: PropTypes.func,
+  setIsUpdatingTask: PropTypes.func.isRequired,
+  renderTasks: PropTypes.func.isRequired,
+};
+
+TaskForm.defaultProps = {
+  setIsCreatingTask: PropTypes.func,
 };
 
 export default TaskForm;

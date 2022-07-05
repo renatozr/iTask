@@ -8,5 +8,8 @@ export const getTasks = () => axios
 export const createTask = (name, statusId) => axios
   .post('http://localhost:3001/tasks', { name, statusId });
 
+export const updateTask = (taskId, name, statusId) => axios
+  .put(`http://localhost:3001/tasks/${taskId}`, { name, statusId });
+
 export const excludeTask = (taskId) => axios
   .delete(`http://localhost:3001/tasks/${taskId}`);
