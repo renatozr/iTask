@@ -20,7 +20,7 @@ const create = async (name, statusId) => {
   );
 
   return {
-    id: insertId, name, status: status[statusId - 1], createdAt: new Date().toISOString(),
+    id: insertId, name, status: status[statusId - 1], createdAt: new Date(),
   };
 };
 
@@ -30,7 +30,9 @@ const update = async (id, name, statusId) => {
     [name, statusId, id],
   );
 
-  return { id, name, status: status[statusId - 1] };
+  return {
+    id, name, status: status[statusId - 1], createdAt: new Date(),
+  };
 };
 
 const exclude = async (id) => {
