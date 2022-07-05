@@ -1,9 +1,14 @@
 # iTask
 Full Stack Todo List
 
-## Iniciar o Backend - ![É preciso ter o mysql instalado e rodando](https://dev.mysql.com/doc/refman/8.0/en/installing.html)
+## Clonar o projeto
+```
+git clone git@github.com:renatozr/iTask.git
+cd iTask
+```
 
-### Instalar dependências
+## Iniciar o Backend - ![É preciso ter o MySql instalado e rodando](https://dev.mysql.com/doc/refman/8.0/en/installing.html)
+### Instalar as dependências
 ```
 cd backend
 npm install
@@ -23,7 +28,7 @@ npm start
 ```
 
 ## Iniciar o Frontend - Em outro terminal na pasta raiz do projeto
-###
+### Instalar as dependências
 ```
 cd front end
 npm install
