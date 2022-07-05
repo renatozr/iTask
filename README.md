@@ -7,7 +7,7 @@ git clone git@github.com:renatozr/iTask.git
 cd iTask
 ```
 
-## Iniciar o Backend - ![É preciso ter o MySql instalado e rodando](https://dev.mysql.com/doc/refman/8.0/en/installing.html)
+## Iniciar o Backend - [É preciso ter o MySql instalado e rodando](https://dev.mysql.com/doc/refman/8.0/en/installing.html)
 ### Instalar as dependências
 ```
 cd backend
