@@ -16,9 +16,9 @@ const create = async (req, res) => {
 
 const update = async (req, res) => {
   const { id } = req.params;
-  const { name, status } = req.body;
+  const { name, statusId } = req.body;
 
-  const task = await taskService.update(id, name, status);
+  const task = await taskService.update(id, name, statusId);
 
   res.status(200).json(task);
 };

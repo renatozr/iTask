@@ -12,8 +12,8 @@ const create = async (name, statusId) => {
   return task;
 };
 
-const update = async (id, name, status) => {
-  const task = await taskModel.update(id, name, status);
+const update = async (id, name, statusId) => {
+  const task = await taskModel.update(id, name, statusId);
 
   return task;
 };

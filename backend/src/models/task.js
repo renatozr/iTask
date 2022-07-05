@@ -1,5 +1,7 @@
 const conn = require('./connection');
 
+const status = ['Pendente', 'Em andamento', 'Pronto'];
+
 const getAll = async () => {
   const [tasks] = await conn.execute(
     `SELECT t.id, t.name, s.name AS status, t.created_at AS createdAt
@@ -17,20 +19,18 @@ const create = async (name, statusId) => {
     [name, statusId],
   );
 
-  const status = ['Pendente', 'Em andamento', 'Pronto'];
-
   return {
     id: insertId, name, status: status[statusId - 1], createdAt: new Date().toISOString(),
   };
 };
 
-const update = async (id, name, status) => {
+const update = async (id, name, statusId) => {
   await conn.execute(
     'UPDATE iTask_DB.task SET name=?, status_id=? WHERE id=?',
-    [name, status, id],
+    [name, statusId, id],
   );
 
-  return { id, name, status };
+  return { id, name, status: status[statusId - 1] };
 };
 
 const exclude = async (id) => {
