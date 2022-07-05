@@ -10,7 +10,7 @@ CREATE TABLE status (
 INSERT INTO status
   (`name`)
 VALUES
-  ('pendente'), ('em andamento'), ('pronto');
+  ('Pendente'), ('Em andamento'), ('Pronto');
 
 CREATE TABLE task (
 	`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

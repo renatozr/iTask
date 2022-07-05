@@ -7,9 +7,9 @@ const getAll = async (_req, res) => {
 };
 
 const create = async (req, res) => {
-  const { name, status } = req.body;
+  const { name, statusId } = req.body;
 
-  const task = await taskService.create(name, status);
+  const task = await taskService.create(name, statusId);
 
   res.status(201).json(task);
 };

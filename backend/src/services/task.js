@@ -6,8 +6,8 @@ const getAll = async () => {
   return tasks;
 };
 
-const create = async (name, status) => {
-  const task = await taskModel.create(name, status);
+const create = async (name, statusId) => {
+  const task = await taskModel.create(name, statusId);
 
   return task;
 };

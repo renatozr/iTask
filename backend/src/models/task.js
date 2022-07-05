@@ -11,13 +11,17 @@ const getAll = async () => {
   return tasks;
 };
 
-const create = async (name, status) => {
+const create = async (name, statusId) => {
   const [{ insertId }] = await conn.execute(
     'INSERT INTO iTask_DB.task (name, status_id, created_at) VALUES (?, ?, NOW());',
-    [name, status],
+    [name, statusId],
   );
 
-  return { id: insertId, name, status };
+  const status = ['Pendente', 'Em andamento', 'Pronto'];
+
+  return {
+    id: insertId, name, status: status[statusId - 1], createdAt: new Date().toISOString(),
+  };
 };
 
 const update = async (id, name, status) => {
