@@ -13,7 +13,7 @@ cd iTask
 cd backend
 npm install
 ```
-### Configurar variaveis de ambiente
+### Configurar as variaveis de ambiente
 Renomeie o arquivo .env.example para .env e preencha os valores MYSQL_USER e MYSQL_PASSWORD
 ```
 // Exemplo
@@ -33,7 +33,7 @@ npm start
 cd frontend
 npm install
 ```
-### Rodar aplicativo react
+### Rodar o aplicativo React
 ```
 npm start
 ```
