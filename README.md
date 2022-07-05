@@ -7,7 +7,7 @@ git clone git@github.com:renatozr/iTask.git
 cd iTask
 ```
 
-## Iniciar o Backend - [É preciso ter o MySql instalado e rodando](https://dev.mysql.com/doc/refman/8.0/en/installing.html)
+## Iniciar o Backend - [É preciso ter o MySQL instalado e rodando](https://dev.mysql.com/doc/refman/8.0/en/installing.html)
 ### Instalar as dependências
 ```
 cd backend
@@ -22,6 +22,8 @@ MYSQL_USER=root
 MYSQL_PASSWORD=12345
 PORT=3001
 ```
+### Criar o banco de dados local
+Execute a as queries do `iTask_DB.sql` no seu MySQL
 ### Rodar o servidor 
 ```
 npm start
